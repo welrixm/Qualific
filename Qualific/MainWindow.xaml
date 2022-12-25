@@ -1,0 +1,22 @@
+﻿<Window x:Class="Qualific.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qualific"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="295*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="GreenYellow"></Rectangle>
+        <TextBlock x:Name="TitlePage" FontSize="25" HorizontalAlignment="Center" Style="{StaticResource TxtBlock}">Магазин продуктов</TextBlock>
+        <Button x:Name="BackBtn" Style="{StaticResource Btn}" HorizontalAlignment="Right" Margin="0,16,100,16" Click="BackBtn_Click">Назад</Button>
+        <Button x:Name="ExitBtn" Style="{StaticResource Btn}" HorizontalAlignment="Right" Margin="0,16,10,16" Click="ExitBtn_Click">Выход</Button>
+        <Rectangle Grid.Row="2" Fill="GreenYellow" ></Rectangle>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="FrameMain"></Frame>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<Application x:Class="Qualific.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Qualific"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBlock" x:Key="TxtBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DarkSlateBlue"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox" x:Key="TxtBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="Btn">
+            <Setter Property="Background" Value="Coral"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox" x:Key="PswBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="CmbBox">
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="ImgSource">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Application.Resources>
+</Application>

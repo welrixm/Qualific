@@ -1,0 +1,100 @@
+﻿<Page x:Class="Qualific.Pages.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Qualific.Pages"
+      mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      d:DesignHeight="450" d:DesignWidth="1200"
+      Title="ProductPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.RowSpan="3">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Style="{StaticResource TxtBlock}" Margin="5">Найти</TextBlock>
+                        <TextBox x:Name="TxtSearch" Style="{StaticResource TxtBox}" SelectionChanged="TxtSearch_SelectionChanged"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Style="{StaticResource TxtBlock}" Margin="5">Сортировка</TextBlock>
+                        <ComboBox x:Name="CbSort" Style="{StaticResource CmbBox}" SelectionChanged="CbSort_SelectionChanged">
+                            <ComboBoxItem Tag="1" Content="Все"></ComboBoxItem>
+                            <ComboBoxItem Tag="2" Content="А-Я"></ComboBoxItem>
+                            <ComboBoxItem Tag="3" Content="Я-А"></ComboBoxItem>
+                            <ComboBoxItem Tag="4" Content="Старые"></ComboBoxItem>
+                            <ComboBoxItem Tag="5" Content="Новые"></ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Style="{StaticResource TxtBlock}" Margin="5">Фильтрация</TextBlock>
+                        <ComboBox x:Name="CbFilter" Style="{StaticResource CmbBox}" SelectionChanged="CbFilter_SelectionChanged_1">
+                            <ComboBoxItem Tag="1" Content="Все"></ComboBoxItem>
+                            <ComboBoxItem  Tag="2" Content="кг"></ComboBoxItem>
+                            <ComboBoxItem Tag="3" Content="мл"></ComboBoxItem>
+                        </ComboBox>
+                        <TextBlock Style="{StaticResource TxtBlock}" Margin="5">Записи</TextBlock>
+                        <ComboBox x:Name="CbCount" Style="{StaticResource CmbBox}" SelectionChanged="CbCount_SelectionChanged_1">
+                            <ComboBoxItem  Content="Все"></ComboBoxItem>
+                            <ComboBoxItem  Content="1"></ComboBoxItem>
+                            <ComboBoxItem  Content="2"></ComboBoxItem>
+                            <ComboBoxItem  Content="3"></ComboBoxItem>
+
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <ListBox x:Name="ProductList" Background="Transparent" Width="750" BorderBrush="Transparent" Grid.Row="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem BorderBrush="Black" Background="White" Width="750">
+                                <StackPanel Orientation="Vertical" Width="690">
+                                    <Image Source="{Binding MainImage}" Height="100" Style="{StaticResource ImgSource}"></Image>
+                                    <TextBlock Text="{Binding Id}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Cost}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                        <TextBlock Text="рублей" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Description}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DateIfAddition}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Quantity, StringFormat={}Количество:{0}}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                        <TextBlock Text="{Binding Unit.Name}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding IsActive}" Style="{StaticResource TxtBlock}" Foreground="Green"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button x:Name="EditProductBtn" Style="{StaticResource Btn}" Click="EditProductBtn_Click">Редактировать</Button>
+                                        <Button x:Name="DeleteBtn" Style="{StaticResource Btn}" Click="DeleteBtn_Click">Удалить</Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="2">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button x:Name="LeftBtn" Content="&lt;" Margin="15 0 " Width="30" Style="{StaticResource Btn}" Click="LeftBtn_Click"></Button>
+                        <TextBlock x:Name="FoundCount" Style="{StaticResource TxtBlock}"></TextBlock>
+                        <TextBlock x:Name="GeneralCount" Style="{StaticResource TxtBlock}"></TextBlock>
+                        <Button x:Name="RightBtn" Content="&gt;" Margin="30 0" Width="30" Style="{StaticResource Btn}" Click="RightBtn_Click"></Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="AddNewProductBtn" Style="{StaticResource Btn}" Click="AddNewProductBtn_Click">Добавить</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
